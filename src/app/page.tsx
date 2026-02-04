@@ -1,21 +1,21 @@
 "use client";
 
-import { useState, useRef } from "react";
-import Image from "next/image";
-import { ArrowDown } from "lucide-react";
 import type { PersonalizedCareerRecommendationsOutput } from "@/ai/flows/personalized-career-recommendations";
+import { ArrowDown } from "lucide-react";
+import Image from "next/image";
+import { useRef, useState } from "react";
 
-import { Button } from "@/components/ui/button";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import { generateRecommendationsAction } from "@/app/actions";
 import CareerForm from "@/components/career-form";
 import CareerResults from "@/components/career-results";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
 import ResourceLinks from "@/components/resource-links";
 import ResultsSkeleton from "@/components/results-skeleton";
-import type { CareerFormSchema } from "@/lib/schema";
-import { generateRecommendationsAction } from "@/app/actions";
+import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import type { CareerFormSchema } from "@/lib/schema";
 
 export default function Home() {
   const [recommendations, setRecommendations] =
